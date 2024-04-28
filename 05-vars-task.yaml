@@ -1,0 +1,17 @@
+- name: variables
+  hosts: web
+  vars: 
+   course: Devops
+   Trainer: SivaKumar
+   Duration: "105 days"
+  tasks:
+  - name: print info
+    course: Teraform
+    Trainer: SKumar
+    Duration: "10 days"
+    ansible.builtin.debug:
+     msg: "Hi, we are learning {{course}} from {{Trainer}} within this {{Duration}}"
+  
+  - name: print info
+    ansible.builtin.debug:
+     msg: "Hi, we are learning {{course}} from {{Trainer}} within this {{Duration}}"
