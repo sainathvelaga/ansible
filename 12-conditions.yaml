@@ -4,6 +4,7 @@
     - name : To run user command
       ansible.builtin.command: id expense
       register: USER
+      ignore_errors: true
     
     - name : To create user if the user doesnt exist
       ansible.builtin.command: useradd expense
