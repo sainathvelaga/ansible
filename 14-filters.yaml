@@ -2,6 +2,16 @@
   hosts: localhost
   vars:
     greeting: "Hello, Good Morning"
+    numbers: [1, 2, 3, 3, 4, 4, 5]
+    ages: [25, 35, 67, 89]
+    my_dict: # this is called as dictionary or map or key/value pairs.
+      Course: Ansbile
+      Trainer: Sivakumar
+      Duration: 120hr
+    my_list:
+    - {'key': 'Course', 'value': 'Ansbile', 'key': 'Trainer', 'value': 'Sivakumar', 'key': 'Duration', 'value': '120hr'}
+    #- {'key': 'Trainer', 'value': 'Sivakumar'}
+    #- {'key': 'Duration', 'value': '120hr'}
   tasks:
   - name: print default value
     ansible.builtin.debug:
@@ -15,4 +25,27 @@
     ansible.builtin.debug:
       msg: "{{greeting | lower}}"
 
-  
+  - name: remove duplicates
+    ansible.builtin.debug:
+      msg: "{{ numbers | unique }}"
+
+  - name: print min and max
+    ansible.builtin.debug:
+      msg: " min age: {{ ages | min }}, max age: {{ ages | max }}"
+
+  - name: before convert
+    ansible.builtin.debug:
+      msg: "Before convert: {{ my_dict }}"
+
+  - name: after convert
+    ansible.builtin.debug:
+      msg: "After convert: {{ my_dict | dict2items }}"
+
+  - name: before convert
+    ansible.builtin.debug:
+      msg: "Before convert: {{ my_list }}"
+      
+  - name: after convert
+    ansible.builtin.debug:
+      msg: "After convert: {{ my_list | items2dict }}"
+
