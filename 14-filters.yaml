@@ -8,5 +8,5 @@
       msg:"Hello {{ Course | default('Ansible') }}"
   
   - name: to convert to upper case
-    ansible.builtin.debug
+    ansible.builtin.debug:
       msg:"{{ greeting | upper }}"
