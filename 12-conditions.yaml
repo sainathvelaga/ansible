@@ -1,9 +1,13 @@
 - name: to demonstrate conditions in ansible
   hosts: localhost
   tasks:
-    - name : to check if the user expense is created or not
+    - name : To run user command
       ansible.builtin.command: id expense
       register: USER
+    
+    - name : To create user if the user doesnt exist
+      ansible.builtin.command: useradd expense
+      when: USER.rc !=0
 
 
   
