@@ -1,0 +1,9 @@
+- name: to demonstrate conditions in ansible
+  hosts: localhost
+  tasks:
+    - name : to check if the user expense is created or not
+      ansible.builtin.command: id expense
+      register: USER
+
+
+  
