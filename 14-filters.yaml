@@ -5,7 +5,7 @@
   tasks:
   - name: print default value
     ansible.builtin.debug:
-      msg:"Hello {{Course | default('Ansible') }}"
+      msg:"Hello {{ Course | default('Ansible') }}"
   
   - name: to convert to upper case
     ansible.builtin.debug
